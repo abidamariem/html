@@ -1,0 +1,100 @@
+ALGORITHM sm-of-set
+VAR
+     set1,set2, result:ARRAY_OF INTEGER[20];
+     i,j,x,k,sum:INTEGER;
+     equal, exist :BOOLEAN:=false;
+     DiffElement : STRING;
+BEGIN
+     set1:={3,1,7,9};
+
+    // Remplissage tab 2
+     FOR i FROM 0 TO set2.length-1 STEP 1  DO
+     read(set2[i]);
+     END_FOR
+
+
+     sum:=0;
+     k:= 0;
+     DiffElement := "";
+     FOR i FROM 0 TO set1.length-1  DO
+
+          j:=0;
+          equal := false;
+
+          WHILE (j<set2.length AND equal = false) DO
+          
+               IF (set1[i]<>set2[j])THEN
+                    j:=j+1;
+               ELSE
+                    equal:=true;
+               END_IF
+
+          END_WHILE
+
+          IF (equal=false) THEN
+               x:=0;
+               exist := false;
+               WHILE(x<k+1 AND exist = false )
+                    IF (result[x]<> set1[i]) THEN 
+                         x:=x+1;
+                    ELSE 
+                         exist := true;
+               END_WHILE
+
+               IF (exist = false) THEN 
+                    sum:=sum+set1[i];
+                    result[k]=set1[i];
+                    k=k+1;
+               END_IF
+
+          END_IF
+
+     END_FOR
+
+     FOR i FROM 0 TO set2.length-1 DO
+
+          j:=0;
+          equal := false;
+
+          WHILE (j<set1.length AND equal = false) DO
+          
+               IF (set2[i]<>set1[j])THEN
+                    j:=j+1;
+               ELSE
+                    equal:=true;
+               END_IF
+
+          END_WHILE
+
+          IF (equal=false) THEN
+               x:=0;
+               exist := false;
+               WHILE(x<k+1 AND exist = false )
+                    IF (result[x]<> set2[i]) THEN 
+                         x:=x+1;
+                    ELSE 
+                         exist := true;
+               END_WHILE
+
+               IF (exist = false) THEN
+                    sum:=sum+set2[i];
+                    result[k]=set2[i];
+                    k=k+1;
+               END_IF
+               
+          END_IF
+
+     END_FOR
+
+     FOR i FROM 0 TO k DO 
+          IF (i=0) THEN
+               DiffElement := DiffElement + result[i];
+          ELSE 
+               DiffElement := DiffElement +","+ result[i];
+          END_IF
+     END_FOR
+     
+     WHRITE(sum+"(distinct elements "+DiffElement+" )");
+
+
+END

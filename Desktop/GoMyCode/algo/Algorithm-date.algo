@@ -1,0 +1,35 @@
+ALGORITHM date
+VAR
+day, month, year , NB : INTEGER;
+a : ARRAY_OF FLOAT[3][13];
+
+BEGIN
+
+Write("give a number compsed of 6  digits");
+read(NB);
+day:= NB/10000 ;
+month:=(NB/100)%100;
+year := NB % 100;
+
+
+IF ((year < 0) or (year > 99) or (month < 1) or (month > 12) or (day < 1) or (day > 31))
+return false ;
+IF ( month =2)
+     IF day > mat [mois-1][1]
+     return false;
+     END IF
+     ELSE
+     IF (year%4)= 0
+     IF (day>29)
+     return false;
+     ELSE
+     IF (day>28)
+     return false;
+END IF
+END IF
+     END IF
+     Write ("Day"+ day);
+     Write ("Month"+mat[month-1][2]);
+     Write ("Year:20"+ year);
+
+

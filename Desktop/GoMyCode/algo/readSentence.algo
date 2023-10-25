@@ -1,0 +1,36 @@
+ALGORITHM readSentence
+VAR
+    countSentenceLength, countNumberOfWord, countNumberOfVowels : INTEGER :=0;
+    textSentence : STRING;
+    
+BEGIN
+    
+    Read (textSentence);
+    
+    //Verification de la phrase
+    IF (textSentence[textsentense.lengh-1]<>".") THEN
+    Write("The sentence must end with dot");
+    
+    //Traitement 
+    ELSE
+        countSentenceLength := textSentence.Length ;
+
+        FOR i FROM 0 TO textSentence.Length-1  DO
+
+           IF (textSentence[i] = "A","a","E","e","I","i","O","o","U","u","Y","y") THEN 
+                countNumberOfVowels := countNumberOfVowels +1 ;
+            END-IF
+
+            IF (textSentence[i]=" ") THEN 
+            countNumberOfWord: = countNumberOfWord + 1;
+            END-IF
+
+        END_FOR
+    END-IF
+    
+    Write("La phrase contient"+countNumberOfWord+" mots et de longuer "+countSentenceLength
+    +" et contient "+countNumberOfVowels+" voyelles");
+
+   
+END
+
