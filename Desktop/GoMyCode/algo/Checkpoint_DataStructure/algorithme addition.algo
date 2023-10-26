@@ -81,7 +81,7 @@ BEGIN
                     result[k]=set2[i];
                     k=k+1;
                END_IF
-               
+
           END_IF
 
      END_FOR
@@ -95,6 +95,5 @@ BEGIN
      END_FOR
      
      WHRITE(sum+"(distinct elements "+DiffElement+" )");
-
 
 END
